@@ -1,4 +1,4 @@
-Ext.define('EXTJS_Admin_660.store.Personnel', {
+Ext.define('Mi.store.Personnel', {
     extend: 'Ext.data.Store',
 
     alias: 'store.personnel',

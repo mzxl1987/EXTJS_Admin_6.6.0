@@ -1,0 +1,2 @@
+创建项目:
+sencha generate app -ext myApp ./

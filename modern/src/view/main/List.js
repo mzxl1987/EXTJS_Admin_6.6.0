@@ -1,12 +1,12 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('EXTJS_Admin_660.view.main.List', {
+Ext.define('Mi.view.main.List', {
     extend: 'Ext.grid.Grid',
     xtype: 'mainlist',
 
     requires: [
-        'EXTJS_Admin_660.store.Personnel'
+        'Mi.store.Personnel'
     ],
 
     title: 'Personnel',

@@ -1,6 +1,6 @@
 {
-    "name": "EXTJS_Admin_660",
-    "namespace": "EXTJS_Admin_660",
+    "name": "Mi",
+    "namespace": "Mi",
     "version": "1.0.0.0",
     "framework": "ext",
 
@@ -64,13 +64,13 @@
     "sass": {
         /**
          * The root namespace to use when mapping *.scss files to classes in the
-         * sass/src and sass/var directories. For example, "EXTJS_Admin_660.view.Foo" would
-         * map to "sass/src/view/Foo.scss". If we changed this to "EXTJS_Admin_660.view" then
+         * sass/src and sass/var directories. For example, "Mi.view.Foo" would
+         * map to "sass/src/view/Foo.scss". If we changed this to "Mi.view" then
          * it would map to "sass/src/Foo.scss". To style classes outside the app's
          * root namespace, change this to "". Doing so would change the mapping of
-         * "EXTJS_Admin_660.view.Foo" to "sass/src/EXTJS_Admin_660/view/Foo.scss".
+         * "Mi.view.Foo" to "sass/src/Mi/view/Foo.scss".
          */
-        "namespace": "EXTJS_Admin_660",
+        "namespace": "Mi",
 
         /**
          * Generated sass source settings
@@ -547,5 +547,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "aeb9feb8-3409-4e21-8ed1-0a33b1cd0b3c"
+    "id": "e9f7da96-8b53-45e5-9c87-7ca3a48b6911"
 }

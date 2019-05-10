@@ -5,17 +5,17 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('EXTJS_Admin_660.view.main.Main', {
+Ext.define('Mi.view.main.Main', {
     extend: 'Ext.tab.Panel',
-    xtype: 'app-main',
+    xtype: 'main',
 
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
 
-        'EXTJS_Admin_660.view.main.MainController',
-        'EXTJS_Admin_660.view.main.MainModel',
-        'EXTJS_Admin_660.view.main.List'
+        'Mi.view.main.MainController',
+        'Mi.view.main.MainModel',
+        'Mi.view.main.List'
     ],
 
     controller: 'main',
@@ -26,12 +26,6 @@ Ext.define('EXTJS_Admin_660.view.main.Main', {
     tabBarHeaderPosition: 1,
     titleRotation: 0,
     tabRotation: 0,
-    
-    listeners: {
-        show: function () { 
-            console.log('Main show');
-        }
-    },
 
     header: {
         layout: {

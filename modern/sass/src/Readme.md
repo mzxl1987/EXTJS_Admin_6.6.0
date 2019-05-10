@@ -2,9 +2,9 @@
 
 This folder contains Sass files defining CSS rules corresponding to classes
 included in the application's JavaScript code build when using the modern toolkit.
-By default, files in this folder are mapped to the application's root namespace, 'EXTJS_Admin_660'.
+By default, files in this folder are mapped to the application's root namespace, 'Mi'.
 This is set in `"app.json"`:
 
     "sass": {
-        "namespace": "EXTJS_Admin_660"
+        "namespace": "Mi"
     }

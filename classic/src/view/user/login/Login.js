@@ -1,19 +1,20 @@
-Ext.define('EXTJS_Admin_660.view.login.Login', {
+Ext.define('Mi.view.user.login.Login', {
     extend: 'Ext.window.Window',
     xtype: 'login',
 
     requires: [
-        'EXTJS_Admin_660.view.login.LoginController',
+        'Mi.view.main.MainViewController',
         'Ext.form.Panel'
     ],
 
-    controller: 'login',
+    controller: 'mainview',
     bodyPadding: 10,
-    title: '登录窗口',
     closable: false,
     autoShow: true,
+    title: '登录窗口',
 
-    items: {
+    items: [{
+    
         xtype: 'form',
         reference: 'form',
         items: [{
@@ -38,6 +39,7 @@ Ext.define('EXTJS_Admin_660.view.login.Login', {
             listeners: {
                 click: 'onLoginClick'
             }
-        }]
-    }
+        }],
+
+    }]
 });

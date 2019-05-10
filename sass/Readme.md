@@ -15,19 +15,19 @@ This folder contains misc. support code for Sass builds (global functions, etc.)
 
 This folder contains Sass files defining CSS rules corresponding to classes
 included in the application's JavaScript code build. By default, files in this 
-folder are mapped to the application's root namespace, 'EXTJS_Admin_660'. This is set in
+folder are mapped to the application's root namespace, 'Mi'. This is set in
 `"app.json"`:
 
     "sass": {
-        "namespace": "EXTJS_Admin_660"
+        "namespace": "Mi"
     }
 
 ### ./sass/var
 
 This folder contains Sass files defining Sass variables corresponding to classes
 included in the application's JavaScript code build. By default, files in this 
-folder are mapped to the application's root namespace, 'EXTJS_Admin_660' in the same way
-as `"EXTJS_Admin_660/sass/src"`.
+folder are mapped to the application's root namespace, 'Mi' in the same way
+as `"Mi/sass/src"`.
 
 ## Slicing
 
