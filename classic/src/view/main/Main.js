@@ -26,6 +26,12 @@ Ext.define('EXTJS_Admin_660.view.main.Main', {
     tabBarHeaderPosition: 1,
     titleRotation: 0,
     tabRotation: 0,
+    
+    listeners: {
+        show: function () { 
+            console.log('Main show');
+        }
+    },
 
     header: {
         layout: {

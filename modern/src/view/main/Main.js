@@ -1,16 +1,10 @@
-/**
- * This class is the main view for the application. It is specified in app.js as the
- * "mainView" property. That setting causes an instance of this class to be created and
- * added to the Viewport container.
- *
- * TODO - Replace the content of this view to suit the needs of your application.
- */
 Ext.define('EXTJS_Admin_660.view.main.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'app-main',
 
     requires: [
-        'Ext.MessageBox',
+        'Ext.plugin.Viewport',
+        'Ext.window.MessageBox',
 
         'EXTJS_Admin_660.view.main.MainController',
         'EXTJS_Admin_660.view.main.MainModel',
@@ -19,43 +13,92 @@ Ext.define('EXTJS_Admin_660.view.main.Main', {
 
     controller: 'main',
     viewModel: 'main',
+    plugins: 'viewport',
 
-    defaults: {
-        tab: {
-            iconAlign: 'top'
+    ui: 'navigation',
+
+    tabBarHeaderPosition: 1,
+    titleRotation: 0,
+    tabRotation: 0,
+
+    header: {
+        layout: {
+            align: 'stretchmax'
         },
-        styleHtmlContent: true
+        title: {
+            bind: {
+                text: '{name}'
+            },
+            flex: 0
+        },
+        iconCls: 'fa-th-list',
+        items: [{
+            xtype: 'button',
+            text: 'Logout',
+            margin: '10 0',
+            handler: 'onClickButton'
+        }]
     },
 
-    tabBarPosition: 'bottom',
+    tabBar: {
+        flex: 1,
+        layout: {
+            align: 'stretch',
+            overflowHandler: 'none'
+        }
+    },
 
-    items: [
-        {
-            title: 'Home',
-            iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
-        },{
-            title: 'Users',
-            iconCls: 'x-fa fa-user',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Groups',
-            iconCls: 'x-fa fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Settings',
-            iconCls: 'x-fa fa-cog',
-            bind: {
-                html: '{loremIpsum}'
+    responsiveConfig: {
+        tall: {
+            headerPosition: 'top'
+        },
+        wide: {
+            headerPosition: 'left'
+        }
+    },
+
+    defaults: {
+        bodyPadding: 20,
+        tabConfig: {
+            plugins: 'responsive',
+            responsiveConfig: {
+                wide: {
+                    iconAlign: 'left',
+                    textAlign: 'left'
+                },
+                tall: {
+                    iconAlign: 'top',
+                    textAlign: 'center',
+                    width: 120
+                }
             }
         }
-    ]
+    },
+
+    items: [{
+        title: 'Home',
+        iconCls: 'fa-home',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'mainlist'
+        }]
+    }, {
+        title: 'Users',
+        iconCls: 'fa-user',
+        bind: {
+            html: '{loremIpsum}'
+        }
+    }, {
+        title: 'Groups',
+        iconCls: 'fa-users',
+        bind: {
+            html: '{loremIpsum}'
+        }
+    }, {
+        title: 'Settings',
+        iconCls: 'fa-cog',
+        bind: {
+            html: '{loremIpsum}'
+        }
+    }]
 });
