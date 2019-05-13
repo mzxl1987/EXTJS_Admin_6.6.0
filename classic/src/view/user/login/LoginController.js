@@ -15,6 +15,17 @@ Ext.define('Mi.view.user.login.LoginController', {
 
         console.log('before Created main')
         // Add the main view to the viewport
-        this.redirectTo('home');
+        // this.redirectTo('home');
+
+        this.requestPOST(
+            'auth/login', null,
+            function (resp, ops) {
+                var obj = Ext.decode(response.responseText);
+             },
+            function (resp, ops) { 
+                var obj = Ext.decode(response.responseText);
+            },
+        );
+
     }
 });

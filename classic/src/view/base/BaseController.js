@@ -5,15 +5,24 @@ Ext.define('Mi.view.base.BaseController', {
 
     // requires: ['Ext.window.Toast'],
 
-    preUrl: '/',
+    preUrl: 'http://localhost:8080/',
     
+    log: console.log,
+    debug: console.debug,
+    info: console.info,
+    error: console.error,
+
     baseRoute: {
         login: 'login',
         home:'home',
     },
 
+    getMainView() { 
+        return Mi.app.getMainView();
+    },
+
     down: function(select){
-        return App.app.getMainView().down(select);
+        return this.getMainView().down(select);
     },
 
     toast: function(content,title){
@@ -24,10 +33,6 @@ Ext.define('Mi.view.base.BaseController', {
             slideDUration: 400,
             maxWidth: 400
         });
-    },
-
-    log: function(v){
-        console.log(v);
     },
 
     requestPOST: function(url,params,success,failure){

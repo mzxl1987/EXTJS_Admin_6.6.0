@@ -15,13 +15,14 @@ Ext.define('Mi.view.main.MainViewController', {
 
     setMainView: function (alias) {
         var v = this.getView();
-        v.removeAll();
-        v.add(Ext.create({ xtype:alias }));
+        if (v) {
+            v.removeAll();
+            v.add(Ext.create({ xtype: alias }));
+        }
     },
 
     onRouteChange: function (hash) { 
-        console.log(hash);
-
+        
         if (this.baseRoute.login === hash ) {
             this.setMainView(hash);
         } else if ( this.baseRoute.home === hash) {
@@ -43,27 +44,17 @@ Ext.define('Mi.view.main.MainViewController', {
 
     onMainViewRender(v,o) { 
         var loggedIn;
-        loggedIn = localStorage.getItem("TutorialLoggedIn");
-        // this.setMainView('Mi.view.user.login.Login');
-        
-        // Ext.create({
-        //     xtype: loggedIn ? 'app-main' : 'login'
-        // });
+        loggedIn = localStorage.getItem("TutorialLoggedIn");        
         this.redirectTo( loggedIn ? 'home' : 'login');
     },
 
     onLoginClick: function () {
 
-        // This would be the ideal location to verify the user's credentials via
-        // a server-side lookup. We'll just move forward for the sake of this example.
-
         // Set the localStorage value to true
         localStorage.setItem("TutorialLoggedIn", true);
 
-        // Remove Login Window
-        // this.getView().destroy();
+        //TODO
 
-        console.log('before Created main')
         // Add the main view to the viewport
         this.redirectTo('home');
     }

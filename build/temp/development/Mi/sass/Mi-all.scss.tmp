@@ -879,12 +879,16 @@ $include-mi-application: dynamic(true);;
 $include-mi-controller-appcontroller: dynamic(true);;
 $include-mi-store-personnel: dynamic(true);;
 $include-mi-view-base-basecontroller: dynamic(true);;
+$include-mi-view-head-head: dynamic(true);;
 $include-mi-view-main-list: dynamic(true);;
 $include-mi-view-main-main: dynamic(true);;
 $include-mi-view-main-maincontroller: dynamic(true);;
 $include-mi-view-main-mainmodel: dynamic(true);;
 $include-mi-view-main-mainview: dynamic(true);;
 $include-mi-view-main-mainviewcontroller: dynamic(true);;
+$include-mi-view-navigation-navigation: dynamic(true);;
+$include-mi-view-navigation-navigationcontroller: dynamic(true);;
+$include-mi-view-navigation-navigationmodel: dynamic(true);;
 $include-mi-view-user-login-login: dynamic(true);;
 $include-mi-view-user-login-logincontroller: dynamic(true);;
 $output-paths: ("path": "../../classic/resources", "shared": "../../resources");
@@ -1335,6 +1339,14 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 @import '../../../../../ext/classic/theme-triton/sass/src/tree/View';
 @import '../../../../../ext/classic/theme-triton/sass/src/window/Toast';
+
+/* including scss file adjacent to ..\..\..\..\..\classic\src\view\main\Main.js */
+$default-resource-root: '' !default;
+$default-resource-path: 'images' !default;
+$current-package: false;
+$current-resource-root: $default-resource-root;
+$relative-image-path-for-uis: $default-resource-path;
+@import '../../../../../classic/src/view/main/Main';
 
 /* including package Mi */
 $Mi-resource-root: '' !default;

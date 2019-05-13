@@ -8,7 +8,9 @@ Ext.define('Mi.Application', {
 
     name: 'Mi',
 
-    requires: ['Mi.*'],
+    requires: [
+        'Mi.*'
+    ],
 
     quickTips: false,
     platformConfig: {
@@ -21,15 +23,6 @@ Ext.define('Mi.Application', {
         // TODO: add global / shared stores here
     ],
 
-    
+    mainView: 'Mi.view.main.MainView',
 
-    onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-            function (choice) {
-                if (choice === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
-    }
 });
