@@ -58,7 +58,6 @@ Ext.define('Mi.view.main.Main', {
     },
 
     defaults: {
-        bodyPadding: 20,
         tabConfig: {
             plugins: 'responsive',
             responsiveConfig: {
