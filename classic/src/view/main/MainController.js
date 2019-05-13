@@ -13,6 +13,11 @@ Ext.define('Mi.view.main.MainController', {
         ':hash' : 'onRouteChange' ,
     },
 
+    onLogout: function () { 
+        localStorage.removeItem('hasLogin');
+        this.redirectTo('logout');
+    },
+
     setMainView: function (alias) {
         var v = this.getView();
         if (v) {
@@ -25,7 +30,9 @@ Ext.define('Mi.view.main.MainController', {
         console.log(' main ', hash);
 
         if (this.baseRoute.login != hash && this.baseRoute.home != hash) { 
-
+            if (this.baseRoute.logout == hash) { 
+                this.redirectTo('login');
+            }
         }
     },
 

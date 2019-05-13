@@ -14,6 +14,7 @@ Ext.define('Mi.view.base.BaseController', {
 
     baseRoute: {
         login: 'login',
+        logout: 'logout',
         home:'home',
     },
 

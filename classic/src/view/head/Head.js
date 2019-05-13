@@ -22,11 +22,11 @@ Ext.define('Mi.view.head.Head', {
             cls: 'sencha-logo',
             html: '<div class="main-logo"><img src="resources/images/company-logo.png">未来城市单灯管理系统</div>',
             width: 250
-        },, {
-            // text: 'Micro',
-            enableToggle:true,
-            iconCls: 'x-fa fa-navicon',
-            toggleHandler: 'onToggleMicro'
+        // }, {
+        //     // text: 'Micro',
+        //     enableToggle:true,
+        //     iconCls: 'x-fa fa-navicon',
+        //     toggleHandler: 'onToggleMicro'
         },
         '->',
         {

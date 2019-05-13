@@ -27,8 +27,6 @@ Ext.define('Mi.view.main.MainViewController', {
             this.setMainView(hash);
         } else if ( this.baseRoute.home === hash) {
             this.setMainView('main');
-        } else { 
-
         }
     },
 
@@ -49,14 +47,26 @@ Ext.define('Mi.view.main.MainViewController', {
     },
 
     onLoginClick: function () {
-
-        // Set the localStorage value to true
-        localStorage.setItem("TutorialLoggedIn", true);
-
-        //TODO
-
-        // Add the main view to the viewport
-        this.redirectTo('home');
+        var me = this;
+        
+        this.requestPOST(
+            'auth/login', null,
+            function (resp, ops) {
+                me.log(resp);
+                var r = Ext.decode(resp.responseText);
+                if (r.success) {
+                    // Set the localStorage value to true
+                    localStorage.setItem("hasLogin", true);
+                    me.redirectTo('home');
+                } else { 
+                    me.toast('用户登录失败! - 请确认用户名密码是否正确.');
+                }
+            },
+            function (resp, ops) {
+                me.log(resp);
+                me.toast('登录请求失败!');
+            },
+        );
     }
 
 });
