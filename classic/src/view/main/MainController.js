@@ -54,14 +54,6 @@ Ext.define('Mi.view.main.MainController', {
             // navBtn.enable();
         }
 
-        // IE8 has an odd bug with handling font icons in pseudo elements;
-        // it will render the icon once and not update it when something
-        // like text color is changed via style addition or removal.
-        // We have to force icon repaint by adding a style with forced empty
-        // pseudo element content, (x-sync-repaint) and removing it back to work
-        // around this issue.
-        // See this: https://github.com/FortAwesome/Font-Awesome/issues/954
-        // and this: https://github.com/twbs/bootstrap/issues/13863
         if (Ext.isIE8) {
             this.repaintList(treelist, pressed);
         }
@@ -76,6 +68,9 @@ Ext.define('Mi.view.main.MainController', {
         treelist.setUi(pressed ? 'nav' : null);
         treelist.setHighlightPath(pressed);
         ct[pressed ? 'addCls' : 'removeCls']('treelist-with-nav');
+
+        this.log('onNavigationRender');
+        // this.log(v,o);
 
     },
 
@@ -101,6 +96,27 @@ Ext.define('Mi.view.main.MainController', {
                 }
             }
         });
+    },
+
+    onNavItemClick: function (s, i, o) { 
+        this.log('onNavItemClick');
+        // this.log(s,i,o);
+    },
+
+    onNavListFocus: function (l, o) { 
+        this.log('onNavListFocus');
+        // this.log(l,o);
+    },
+
+    onNavListSelectionChange: function (t, r, o) { 
+        this.log('onNavListSelectionChange',r);
+        var d = r.data;
+        if (d.leaf) {
+            this.redirectTo(d.route);
+        } else { 
+            
+        }
     }
+
 
 });

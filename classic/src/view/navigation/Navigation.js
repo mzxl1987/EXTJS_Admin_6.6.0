@@ -11,10 +11,8 @@ Ext.define('Mi.view.navigation.Navigation', {
 
     controller: 'main',
     
-    viewModel: {
-        type: 'navigation'
-    },
-
+    viewModel: 'navigation',
+    
     bodyStyle: 'background:#32404e;',
     region: 'west',
     width: 250,
@@ -24,15 +22,18 @@ Ext.define('Mi.view.navigation.Navigation', {
         type: 'vbox',
         align: 'stretch'
     },
-
-    ui: 'nav',
     border: false,
     scrollable: 'y',
     items: [{
-        ui: 'nav',
         xtype: 'treelist',
+        selectOnExpander:true,
         reference: 'treelist',
-        bind: '{navItems}'
+        bind: '{navItems}',
+        listeners: {
+            selectionchange: 'onNavListSelectionChange',
+            focus: 'onNavListFocus',
+            itemclick: 'onNavItemClick',
+        },
     }],
 
     listeners: {
