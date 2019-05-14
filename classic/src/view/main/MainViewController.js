@@ -42,7 +42,7 @@ Ext.define('Mi.view.main.MainViewController', {
 
     onMainViewRender(v,o) { 
         var loggedIn;
-        loggedIn = localStorage.getItem("TutorialLoggedIn");        
+        loggedIn = localStorage.getItem("hasLogin");        
         this.redirectTo( loggedIn ? 'home' : 'login');
     },
 

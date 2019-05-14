@@ -16,7 +16,7 @@ Ext.define('Mi.view.navigation.Navigation', {
     bodyStyle: 'background:#32404e;',
     region: 'west',
     width: 250,
-    split: true,
+    // split: true,
     reference: 'treelistContainer',
     layout: {
         type: 'vbox',
@@ -26,7 +26,8 @@ Ext.define('Mi.view.navigation.Navigation', {
     scrollable: 'y',
     items: [{
         xtype: 'treelist',
-        selectOnExpander:true,
+        selectOnExpander: true,
+        highlightPath:true,
         reference: 'treelist',
         bind: '{navItems}',
         listeners: {

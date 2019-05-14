@@ -9,14 +9,14 @@ Ext.define('Mi.view.main.Main', {
     extend: 'Ext.container.Container',
     xtype: 'main',
 
-    requires: [
-        'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
+    // requires: [
+    //     'Ext.plugin.Viewport',
+    //     'Ext.window.MessageBox',
 
-        'Mi.view.main.MainController',
-        'Mi.view.main.MainModel',
-        'Mi.view.main.List'
-    ],
+    //     'Mi.view.main.MainController',
+    //     'Mi.view.main.MainModel',
+    //     'Mi.view.main.List'
+    // ],
 
     controller: 'main',
     viewModel: 'main',
@@ -37,6 +37,8 @@ Ext.define('Mi.view.main.Main', {
             layout: 'border',
             items: [{
                 xtype: 'navigation',
-            }, {}, {}]
+            }, {
+                    xtype:'center'
+            }, {}]
     }]
 });

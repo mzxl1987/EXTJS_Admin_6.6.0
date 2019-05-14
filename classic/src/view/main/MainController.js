@@ -9,6 +9,13 @@ Ext.define('Mi.view.main.MainController', {
 
     alias: 'controller.main',
 
+    requires: [
+        // 'Mi.*',
+        // 'Mi.view.lamp.Lamp',
+    ],
+
+    preRoute: null,
+
     routes: {
         ':hash' : 'onRouteChange' ,
     },
@@ -27,35 +34,33 @@ Ext.define('Mi.view.main.MainController', {
     },
 
     onRouteChange: function (hash) { 
-        console.log(' main ', hash);
+        
+        if (Mi.view.base.Base.preRoute === hash) return;
+
+        console.log(' Route : ', hash, Mi.view.base.Base.preRoute);
+        Mi.view.base.Base.preRoute = hash;
+        console.log(' Route : ', hash, Mi.view.base.Base.preRoute);
 
         if (this.baseRoute.login != hash && this.baseRoute.home != hash) { 
-            if (this.baseRoute.logout == hash) { 
+
+            if (this.baseRoute.logout == hash) {
                 this.redirectTo('login');
+            } else { 
+                var tab = this.down('center');
+                var treelist = this.down('treelist');
+                var store = treelist.getStore();
+                var node = store.findNode('route', hash);
+                var d = node.data;
+
+                tab.add({
+                    // xtype:'panel',
+                    xtype: d.viewType,
+                    title: d.text,
+                    // iconCls: d.iconCls,
+                })
+
+                    
             }
-        }
-    },
-
-    onToggleMicro: function (button, pressed) {
-        var treelist = this.down('treelist[reference=treelist]'),
-            ct = treelist.ownerCt;
-
-        treelist.setMicro(pressed);
-
-        this.log(this.oldWidth);
-
-        if (pressed) {
-            // navBtn.setPressed(true);
-            // navBtn.disable();
-            this.oldWidth = ct.width;
-            ct.setWidth(44);
-        } else {
-            ct.setWidth(250);
-            // navBtn.enable();
-        }
-
-        if (Ext.isIE8) {
-            this.repaintList(treelist, pressed);
         }
     },
 
@@ -74,30 +79,6 @@ Ext.define('Mi.view.main.MainController', {
 
     },
 
-    repaintList: function (treelist, microMode) {
-        treelist.getStore().getRoot().cascade(function (node) {
-            var item, toolElement;
-
-            item = treelist.getItem(node);
-
-            if (item && item.isTreeListItem) {
-                if (microMode) {
-                    toolElement = item.getToolElement();
-
-                    if (toolElement && toolElement.isVisible(true)) {
-                        toolElement.syncRepaint();
-                    }
-                }
-                else {
-                    if (item.element.isVisible(true)) {
-                        item.iconElement.syncRepaint();
-                        item.expanderElement.syncRepaint();
-                    }
-                }
-            }
-        });
-    },
-
     onNavItemClick: function (s, i, o) { 
         this.log('onNavItemClick');
         // this.log(s,i,o);
@@ -109,12 +90,11 @@ Ext.define('Mi.view.main.MainController', {
     },
 
     onNavListSelectionChange: function (t, r, o) { 
-        this.log('onNavListSelectionChange',r);
         var d = r.data;
-        if (d.leaf) {
+        this.log('onNavListSelectionChange', r, d);
+        
+        if (d.leaf && d.route) {
             this.redirectTo(d.route);
-        } else { 
-            
         }
     }
 
