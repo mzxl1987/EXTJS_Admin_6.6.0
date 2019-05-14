@@ -879,6 +879,7 @@ $include-mi-application: dynamic(true);;
 $include-mi-controller-appcontroller: dynamic(true);;
 $include-mi-store-personnel: dynamic(true);;
 $include-mi-view-base-basecontroller: dynamic(true);;
+$include-mi-view-base-baseviewmodel: dynamic(true);;
 $include-mi-view-head-head: dynamic(true);;
 $include-mi-view-main-list: dynamic(true);;
 $include-mi-view-main-main: dynamic(true);;
@@ -1338,6 +1339,14 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 @import '../../../../../ext/classic/theme-triton/sass/src/tree/View';
 @import '../../../../../ext/classic/theme-triton/sass/src/window/Toast';
+
+/* including scss file adjacent to ..\..\..\..\..\classic\src\view\head\Head.js */
+$default-resource-root: '' !default;
+$default-resource-path: 'images' !default;
+$current-package: false;
+$current-resource-root: $default-resource-root;
+$relative-image-path-for-uis: $default-resource-path;
+@import '../../../../../classic/src/view/head/Head';
 
 /* including package Mi */
 $Mi-resource-root: '' !default;
